@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+<div style="margin:0 auto">
+    <input type="button" id="desc" value="-">
+    <input type="text" id="result" placeholder="views">
+    <input type="button" id="incr" value="+">
+</div>
+<script>
+$(function (){
+console.log($("#result").val())
+    $("#incr").click(function (){
+        $.ajax({
+            url:"/incr",
+            type:"get",
+            success(data){
+                $("#result").val(data)
+            }
+        })
+    })
+
+    $("#desc").click(function (){
+        $.ajax({
+            url:"/desc",
+            type:"get",
+            success(data){
+                $("#result").val(data)
+            }
+        })
+    })
+})
+</script>
+</body>
+</html>
